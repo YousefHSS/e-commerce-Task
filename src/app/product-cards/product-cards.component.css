@@ -1,0 +1,11 @@
+.card-custom-image{
+
+    object-fit: contain;
+
+    height: 201px;
+}
+
+.card-custom-body{
+    display: flex;
+    flex-direction: column;
+}
