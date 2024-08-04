@@ -1,5 +1,5 @@
 <div class="container p-2">
-
+  <ng-template #successTpl> Item added to cart </ng-template>
 <div class="card-deck d-flex flex-wrap " >
 
     @for (product of products; track $index) {
@@ -10,7 +10,7 @@
             <div class="card-title">{{product.title}}</div>
 
             <p class="card-text">{{product.price}}$</p>
-            <div class="mt-auto"><a href="#" class="btn btn-primary pull-right ">Add to cart</a></div>
+            <div class="mt-auto"><a (click)="AddToCart(product.id,$event);showSuccess(successTpl)" class="btn btn-primary pull-right ">Add to cart</a></div>
           </div>
         </div>
         </div>
@@ -18,3 +18,4 @@
     
 </div>
 </div>
+<app-toasts aria-live="polite" aria-atomic="true"></app-toasts>

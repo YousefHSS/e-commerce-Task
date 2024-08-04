@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ProductsService } from '../products.service';
+import { ProductsService } from '../../_services/products.service';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
