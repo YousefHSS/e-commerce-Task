@@ -4,7 +4,7 @@
 
     @for (product of products; track $index) {
       <div class="col-3 mt-2">
-        <div class="card p-1 " style="width: 18rem;height: 27rem;" (click)="navigate('product',product.id)">
+        <div class="card p-1 " style="width: 20vw;height: 60vh;" (click)="navigate('product',product.id)">
           <img class="card-custom-image"  src="{{product.image}}" alt="Card image cap">
           <div class="card-body card-custom-body">
             <div class="card-title">{{product.title}}</div>
