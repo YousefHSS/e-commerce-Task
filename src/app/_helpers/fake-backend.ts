@@ -8,6 +8,9 @@ let users = JSON.parse(localStorage.getItem('users') || '[]') || [];
 
 @Injectable()
 export class FakeBackendInterceptor implements HttpInterceptor {
+    constructor() {
+        console.log('FakeBackendInterceptor');
+    }
     public intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
         const { url, method, headers, body } = request;
