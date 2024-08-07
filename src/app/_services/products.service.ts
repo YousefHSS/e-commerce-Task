@@ -46,4 +46,7 @@ export class ProductsService {
   getAllProducts() {
     return this.productsSubject.getValue();
   }
+  getCountAllProducts() {
+    return localStorage.getItem('cart')?.length || 0;
+  }
 }

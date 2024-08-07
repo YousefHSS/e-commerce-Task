@@ -21,7 +21,12 @@
           </div>
           <!-- a right anchored icon of shopping cart -->
 
+          <!-- cart badge-->
+          
           <a class="nav-link" (click)="router.navigate(['cart']);" tabindex="-1" aria-disabled="true"> <i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+          <i class="fa-solid fa-cart-shopping BigIcon">
+            <div id="badge" #badge>{{productsCount??0}}</div>
+          </i>
           <li class="nav-item">
             <a class="nav-link" (click)="router.navigate(['login']);">Login</a>
           </li>

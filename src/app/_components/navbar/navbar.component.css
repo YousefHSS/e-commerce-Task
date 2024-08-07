@@ -3,3 +3,27 @@
     width: -webkit-fill-available;
     width: fill-available;
 }
+.badge{
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    padding: 1.3px;
+
+    background: #c20000;
+    border: 1px solid #666;
+    color: #666;
+    text-align: center;
+    font-weight: bolder !important;
+    font: 9px Arial, sans-serif;
+
+    position: absolute;
+    top: 0;
+    right: 43%;
+    transform: translate(50%, -50%);
+    transition: all 0.2s;
+}
+.BigIcon:hover .badge{
+    background-color: #717fe0;
+    color: #fff;
+    border: 1px solid #717fe0;
+}

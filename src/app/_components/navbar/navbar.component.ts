@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { ToastModule } from 'primeng/toast';
 import { Router } from '@angular/router';
+import { ProductsService } from '../../_services/products.service';
+import { CartService } from '../../_services/cart.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,7 +12,18 @@ import { Router } from '@angular/router';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
+  productsCount: number | undefined;
 
-  constructor(protected router:Router){}
+  constructor(protected router:Router,protected cartService: CartService){
+   
+  }
+  ngOnInit() {
+    // Subscribe to the observable to get updated products
+    this.cartService.cartItems$.subscribe(data => {
+      console.log(data);
+      this.productsCount = this.cartService.getCountAllProducts();
+    });
+  }
+
 
 }

@@ -1,13 +1,11 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, inject, Input, TemplateRef } from '@angular/core';
+import { Component, inject, TemplateRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductsService } from '../../_services/products.service';
 import { ToastService } from '../../_services/toast.service';
-import { NgTemplateOutlet } from '@angular/common';
-import { NgbToastModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastsContainer } from '../toasts-container/toasts-container.component';
 import { CartItem } from '../../cart-item';
+import { CartService } from '../../_services/cart.service';
 @Component({
   selector: 'app-product-cards',
   standalone: true,
@@ -17,6 +15,7 @@ import { CartItem } from '../../cart-item';
 })
 export class ProductCardsComponent {
   toastService = inject(ToastService);
+  
 	showSuccess(template: TemplateRef<any>) {
     console.log('template', template);
 		this.toastService.show({ template, classname: 'bg-success text-light', delay: 1000 });
@@ -55,6 +54,7 @@ AddToCart(id: number, event: any) {
       localStorage.setItem('cart', JSON.stringify(items));
     }
   }
+  this.cartService.addToCart(id);
 }
 navigate(path: string, args: any) {
 
@@ -62,8 +62,10 @@ navigate(path: string, args: any) {
 
 }
   products: any;
-  constructor(private router: Router ,private productsService: ProductsService) { 
-  }
+  constructor(private router: Router ,private productsService: ProductsService,private cartService: CartService) {
+    
+  } 
+  
   ngOnInit() {
     // Subscribe to the observable to get updated products
     this.productsService.Products$.subscribe(data => {
